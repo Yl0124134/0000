@@ -1,0 +1,17 @@
+# -*- coding:utf-8 -*-
+# __author__ = 'YL'
+#将你的qq头像右上角加上红色的数字，类似于微信未读信息数量那种提示
+from PIL import Image,ImageDraw,ImageFont
+
+def add_number(img):
+    draw = ImageDraw.Draw(img) #表示显示的字在图画里
+    myfont = ImageFont.truetype('C:/Windows/Fonts/calibri.ttf',size=100)#选择字体 打开所在字体所在文件夹
+    fillcolor = "#ff0000"  #填充色为红色
+    width,height = img.size #获取图片宽高
+    draw.text((width-150,0),'YL',font=myfont,fill=fillcolor)#字体显示的坐标 名称 字体类型 字体颜色
+    img.save('123.jpg','jpeg') #保存图片
+
+    return 0
+if __name__ == '__main__':
+    image = Image.open('C:/Users/Administrator/Desktop/python/123.jpg')#打开图片
+    add_number(image)#运行加载数字的函数
